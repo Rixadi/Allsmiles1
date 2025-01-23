@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galeria Infinita</title>
+    <title>Galeria com Fade nas Bordas</title>
     <style>
         body {
             margin: 0;
@@ -15,40 +15,60 @@
             overflow: hidden;
         }
         .slideshow-container {
-            display: flex;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
             position: relative;
-        }
-        .slide-track {
-            display: flex;
-            width: calc(300px * 6); /* 3 imagens * 2 (para duplicar) */
-            animation: scroll 15s linear infinite;
-        }
-        .slide {
-            width: 300px;
-            height: 300px;
-            margin-right: 10px;
+            width: 80vw;
+            height: 80vh;
+            overflow: hidden;
             border-radius: 15px;
         }
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-300px * 3)); } /* Desloca 3 imagens para a esquerda */
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .slide.active {
+            opacity: 1;
+        }
+        .fade-effect {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* Permite interações através do elemento */
+        }
+        .fade-left {
+            background: linear-gradient(to right, #31305c, transparent 20%);
+            left: 0;
+            top: 0;
+        }
+        .fade-right {
+            background: linear-gradient(to left, #31305c, transparent 20%);
+            right: 0;
+            top: 0;
         }
     </style>
 </head>
 <body>
     <div class="slideshow-container">
-        <div class="slide-track">
-            <img class="slide" src="https://i.imgur.com/HHXb7dr.png" alt="Imagem 1">
-            <img class="slide" src="https://i.imgur.com/n9ZkSLl.png" alt="Imagem 2">
-            <img class="slide" src="https://i.imgur.com/ZJhvGRb.png" alt="Imagem 3">
-            <!-- Duplicando as imagens para criar o efeito infinito -->
-            <img class="slide" src="https://i.imgur.com/HHXb7dr.png" alt="Imagem 1">
-            <img class="slide" src="https://i.imgur.com/n9ZkSLl.png" alt="Imagem 2">
-            <img class="slide" src="https://i.imgur.com/ZJhvGRb.png" alt="Imagem 3">
-        </div>
+        <img class="slide active" src="https://i.imgur.com/HHXb7dr.png" alt="Imagem 1">
+        <img class="slide" src="https://i.imgur.com/n9ZkSLl.png" alt="Imagem 2">
+        <img class="slide" src="https://i.imgur.com/ZJhvGRb.png" alt="Imagem 3">
+        <!-- Elementos para o efeito de fade nas bordas -->
+        <div class="fade-effect fade-left"></div>
+        <div class="fade-effect fade-right"></div>
     </div>
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        let currentIndex = 0;
+
+        function showNextSlide() {
+            slides[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % slides.length;
+            slides[currentIndex].classList.add('active');
+        }
+
+        setInterval(showNextSlide, 3000); // Troca a imagem a cada 3 segundos
+    </script>
 </body>
 </html>
