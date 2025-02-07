@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galeria de Imagens com Bordas Arredondadas</title>
+    <title>Galeria de Imagens com Cantos Arredondados</title>
     <style>
         body {
             margin: 0;
@@ -19,7 +19,7 @@
             width: 80vw;
             height: 80vh;
             overflow: hidden;
-            border-radius: 15px;
+            border-radius: 100px;
             background-color: #31305c;
         }
         .slide {
@@ -29,7 +29,7 @@
             object-fit: contain;
             opacity: 0;
             transition: opacity 1s ease-in-out;
-            border-radius: 23%; /* Aplica bordas arredondadas às imagens */
+            border-radius: 100px; /* Bordas arredondadas suaves, semelhante ao exemplo */
         }
         .slide.active {
             opacity: 1;
