@@ -5,31 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galeria de Imagens com Cantos Arredondados</title>
     <style>
-        body {
+        /* CSS Reset */
+        * {
             margin: 0;
-            background-color: #31305c;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            /* height: auto;  É melhor para não conflitar com o Unbounce */
+            padding: 0;
+            box-sizing: border-box;
         }
+
         .slideshow-container {
             position: relative;
-            width: 1214px;  /* Largura do container */
-            height: 533px;  /* Altura do container */
-            overflow: hidden;
-            border-radius: 50px; /* Bordas arredondadas */
+            width: 1214px;
+            height: 533px;
+            max-height: 533px; /* Adicionado */
+            min-height: 533px; /* Adicionado */
+            overflow: hidden; /* Garante que o conteúdo seja cortado */
+            border-radius: 50px;
             background-color: #31305c;
-            margin: 0 auto; /* Centraliza o container */
+            margin: 0 auto;
         }
         .slide {
             position: absolute;
             width: 100%;
             height: 100%;
-            object-fit: cover;  /* Preenche o espaço mantendo o aspecto */
+            object-fit: cover;
             opacity: 0;
             transition: opacity 1s ease-in-out;
-            border-radius: 50px; /* Bordas arredondadas para as imagens também */
+            border-radius: 50px;
         }
         .slide.active {
             opacity: 1;
@@ -51,7 +52,7 @@
             slides[currentIndex].classList.add('active');
         }
 
-        setInterval(showNextSlide, 3000); // Troca a imagem a cada 3 segundos
+        setInterval(showNextSlide, 3000);
     </script>
 </body>
 </html>
