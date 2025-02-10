@@ -8,11 +8,11 @@
         body {
             margin: 0;
             background-color: #31305c;
+            /* Remove height: 100vh; */
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            overflow: hidden;
+            /* overflow: hidden;  Pode causar problemas no Unbounce.  Teste sem ele. */
         }
         .slideshow-container {
             position: relative;
@@ -21,6 +21,7 @@
             overflow: hidden;
             border-radius: 50px; /* Bordas arredondadas */
             background-color: #31305c;
+            margin: 0 auto; /* Centraliza o container */
         }
         .slide {
             position: absolute;
@@ -30,6 +31,7 @@
             opacity: 0;
             transition: opacity 1s ease-in-out;
             border-radius: 50px; /* Bordas arredondadas para as imagens também */
+            max-width: 100%; /* Garante que a imagem não exceda a largura do container */
         }
         .slide.active {
             opacity: 1;
