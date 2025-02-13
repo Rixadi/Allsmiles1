@@ -16,13 +16,12 @@
             position: relative;
             width: 1214px;
             height: 533px;
-            max-height: 533px; /* Adicionado */
-            min-height: 533px; /* Adicionado */
-            overflow: hidden; /* Garante que o conteúdo seja cortado */
             border-radius: 50px;
             background-color: #31305c;
             margin: 0 auto;
+            overflow: hidden;
         }
+
         .slide {
             position: absolute;
             width: 100%;
@@ -32,6 +31,7 @@
             transition: opacity 1s ease-in-out;
             border-radius: 50px;
         }
+
         .slide.active {
             opacity: 1;
         }
@@ -39,9 +39,10 @@
 </head>
 <body>
     <div class="slideshow-container">
-        <img class="slide active" src="https://i.imgur.com/iRxDxoU.png" alt="Imagem 1">
-        <img class="slide" src="https://i.imgur.com/Ie4GBhM.png" alt="Imagem 2">
+        <img class="slide active" src="https://i.imgur.com/Ie4GBhM.png" alt="Imagem 1">
+        <img class="slide" src="https://i.imgur.com/PjqRAWK.png" alt="Imagem 2">
     </div>
+
     <script>
         const slides = document.querySelectorAll('.slide');
         let currentIndex = 0;
